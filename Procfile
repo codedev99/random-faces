@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run main.py -p 8501
+web: sh setup.sh && streamlit run main.py

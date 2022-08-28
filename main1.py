@@ -10,7 +10,7 @@ display = st.container()
 
 MODEL_PATH = "./scripted-generator.pt"
 
-@st.cache()
+# @st.cache()
 def get_generator():
     generator = torch.jit.load(MODEL_PATH)
     return generator

@@ -1,4 +1,4 @@
-mkdir -p ~/.random-faces/
+mkdir -p ~/.streamlit/
 
 echo "\
 [server]\n\
@@ -6,4 +6,4 @@ headless=true\n\
 port=$PORT\n\
 enableCORS=false\n\
 \n\
-" > ~/.random-faces/config.toml
+" > ~/.streamlit/config.toml

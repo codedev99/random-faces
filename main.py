@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import torch
 from torch import nn
+import io
 
 header = st.container()
 interactive = st.container()
@@ -10,9 +11,14 @@ display = st.container()
 
 MODEL_PATH = "./scripted-generator.pt"
 
-# @st.cache()
-def get_generator():
-    generator = torch.jit.load(MODEL_PATH)
+@st.cache()
+def get_bytesobj():
+    with open(MODEL_PATH, 'rb') as f:
+        buffer = io.BytesIO(f.read())
+    return buffer
+
+def get_generator(bytesobj):
+    generator = torch.jit.load(bytesobj)
     return generator
 
 @st.cache()
@@ -38,7 +44,8 @@ with header:
     st.text("Welcome to the Random Faces app. This project generates synthetic 48x48 face images from random noise.")
 
 with interactive:
-    generator = get_generator()
+    bytesobj = get_bytesobj()
+    generator = get_generator(bytesobj)
     c1, c2, c3 = st.columns([0.2, 1, 0.2])
     num_images = c2.slider("Number of random face images to generate?", min_value=4, max_value=16, value=4, step=4)
 

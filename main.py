@@ -12,5 +12,5 @@ def get_noise(num_images):
     noise = torch.randn(num_images, 128)
     return noise
 
-noise = get_noise()
+noise = get_noise(1)
 st.write(noise[0,0].item())

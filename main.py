@@ -5,4 +5,10 @@ import torch
 st.write("Success")
 a = torch.Tensor([1])
 st.write(type(a))
-gen = torch.jit.load("./scripted-generator.pt")
+
+@st.cache()
+def get_gen():
+    gen = torch.jit.load("./scripted-generator.pt")
+    return gen
+
+gen = get_gen()

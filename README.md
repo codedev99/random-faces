@@ -15,7 +15,9 @@ You can deploy this project in a few simple steps.
 + Firstly, clone the repo to your local machine.
 + Open command line/terminal and cd to the directory.
 + Run the following command:
+
     streamlit run main.py
+    
 + After deployment is complete, open the URL provided in the terminal, in a web browser.
 
 ### Heroku
@@ -23,15 +25,21 @@ Please ensure that Heroku CLI and Git CLI is installed on your computer. To depl
 + Firstly, clone the repo to your local machine.
 + Open command line/terminal and cd to the directory.
 + Run the following commands:
+
     git init
     git add .
     git commit -m "heroku deployment"
+
 + Login to Heroku using:
+
     heroku login
+
 + After successful login, run the following:
+
     heroku create <nameofyourapp>
     heroku git:remote -a <nameofyourapp>
     git push heroku master
+
 + Once the app is deployed, open the link provided in the terminal (it would be in the style of <nameofyourapp>.herokuapp.com)
 
 ## This repo contains
